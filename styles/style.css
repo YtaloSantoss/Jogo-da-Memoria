@@ -11,7 +11,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(310deg,#fffeec , #fff9a3, #fdff72,#fffb11e5);
+    background: linear-gradient(310deg,rgb(34, 226, 252),rgba(210, 248, 39, 0.877));
 
 }
 
