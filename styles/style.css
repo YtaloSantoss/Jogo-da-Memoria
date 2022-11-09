@@ -15,6 +15,8 @@ body{
 
 }
 
+
+
 .card{
     width: 130px;
     height: 130px;
@@ -25,7 +27,7 @@ body{
 
 
 .flip{
-    transform: rotateY(180deg);
+    transform:rotateY(180deg);
 }
 
 .card_back, .card_front{

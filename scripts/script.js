@@ -1,7 +1,7 @@
-const FRONT = "card_front"
-const BACK = "card_back"
-const CARD = "card"
-const ICON = "icon"
+const FRONT = "card_front";
+const BACK = "card_back";
+const CARD = "card";
+const ICON = "icon";
 
 
 let techs = ['bootstrap',
@@ -32,10 +32,10 @@ function initializeCards(cards){
 
     cards.forEach(card => {
 
-        let cardElement = document.createAttribute("gameBord");
+        let cardElement = document.createElement('div');
         cardElement.id = card.id;
         cardElement.classList.add(CARD);
-        cardElement.CDATA_SECTION_NODE.icon = card.icon;
+        cardElement.dataset.icon = card.icon;
 
         createCardContent(card, cardElement);
 
@@ -54,15 +54,16 @@ function createCardContent(card, cardElement){
 function creatCardFace(face, card, element) {
 
     let cardElementFace = document.createElement('div');
-    cardElement.classList.add(face);
-    if(face === FRONT){
+    cardElementFace.classList.add(face);
+    if (face === FRONT){
         let iconElement = document.createElement('img');
         iconElement.classList.add(ICON);
-        iconElement.src = "./images" + card.icon + "png";
+        iconElement.src = "./images/" + card.icon + ".png";
         cardElementFace.appendChild(iconElement)
     }else{
         cardElementFace.innerHTML =  "&lt/&gt";
     }
+    element.appendChild(cardElementFace);
 }
 
 
@@ -114,4 +115,5 @@ function createIdWithTech(tech){
 
 function flipCard(){
 
+    this.classList.add("flip")
 }
