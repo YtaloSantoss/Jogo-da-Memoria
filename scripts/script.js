@@ -52,35 +52,23 @@ function creatCardFace(face, card, element) {
 }
 
 
-function createCardsFromTechs(techs) {
+function flipCard() {
 
-    let cards = [];
-// isso tudo ta sendo adcionado em tech e em tech ta sendo adcionado cada elemento pelo of de techs, depois tudo vai pra cards
-    for (let tech of techs) {
-        cards.push(createPairFromTech(tech));
+    if (game.setCard(this.id)) {
+
+        this.classList.add("flip"); 
+        if (game.checkMatch()) {
+            game.clearCards();
+        } else {
+        
+            setTimeout(()=>{
+            let firstCardView = document.getElementById(game.firstCard.id);
+            let secondCardView = document.getElementById(game.secondCard.id);
+            
+            firstCardView.classList.remove('flip');
+            secondCardView.classList.remove('flip');
+            game.clearCards();
+            }, 1000);
+        }; 
     }
-    
-    return  cards.flatMap(pair => pair)
-}
-
-function createPairFromTech(tech) {
-
-    return [{
-        id: createIdWithTech(tech),
-        icon: tech,
-        flipped: false,
-    }, {
-        id: createIdWithTech(tech),
-        icon: tech,
-        flipped: false,
-    }]
-}
-
-function createIdWithTech(tech){
-    return tech + parseInt(Math.random() * 1000);
-}
-
-function flipCard(){
-
-    this.classList.add("flip")
 }
